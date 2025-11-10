@@ -79,7 +79,7 @@ if (plateTaken.length > 0) {
 
            // ✅ Insert new vehicle (always create a new row)
     const [vehicleResult] = await db.query(`
-      INSERT INTO Vehicle SET ?
+      INSERT INTO vehicle SET ?
     `, {
       User_ID: userId,
       Vehicle_Type: vehicleType,
@@ -115,7 +115,7 @@ if (plateTaken.length > 0) {
   const modificationCount = (requestData?.ModificationCount || 0) + 1;
 
       await db.query(`
-        UPDATE Request SET Vehicle_ID = ?, Status = 'modified', ModificationCount = ?  WHERE Req_ID = ?
+        UPDATE request SET Vehicle_ID = ?, Status = 'modified', ModificationCount = ?  WHERE Req_ID = ?
       `, [newVehicleId, modificationCount, requestId]);
 
       return res.status(200).json({ success: true, message: 'تم تحديث الطلب الحالي بنجاح' });
