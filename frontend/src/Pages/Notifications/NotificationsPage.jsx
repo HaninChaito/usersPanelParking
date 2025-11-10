@@ -26,7 +26,7 @@ const statusColorMap = {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/notifications/notify', {
+    axios.get('${import.meta.env.VITE_API_URL}/api/notifications/notify', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).then(res => setNotifications(res.data))
       .catch(err => console.error('Fetch error:', err));

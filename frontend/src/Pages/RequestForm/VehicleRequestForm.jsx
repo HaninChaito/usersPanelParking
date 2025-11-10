@@ -28,7 +28,7 @@ const [formMessageType, setFormMessageType] = useState('');
     const checkRequest = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/vehicle/check-existing-request', {
+        const res = await fetch('${import.meta.env.VITE_API_URL}/api/vehicle/check-existing-request', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
@@ -87,7 +87,7 @@ const [formMessageType, setFormMessageType] = useState('');
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/vehicle/submit-vehicle', {
+      const response = await fetch('${import.meta.env.VITE_API_URL}/api/vehicle/submit-vehicle', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
         body: data,
