@@ -19,10 +19,10 @@ export const getNotifications = async (req, res) => {
         V.Vehicle_Image,
         V.Driving_License,
         V.Insurance_Image
-      FROM Request R
+      FROM request R
       JOIN Vehicle V ON V.Vehicle_ID = R.Vehicle_ID
       WHERE R.Sender_ID = ?
-      ORDER BY R.UpdatedAt DESC  -- Replace with your actual timestamp column from Request
+      ORDER BY R.UpdatedAt DESC  -- Replace with your actual timestamp column from request
     `, [userId]);
 
     res.json(rows);

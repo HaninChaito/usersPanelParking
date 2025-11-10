@@ -71,7 +71,7 @@ if (plateTaken.length > 0) {
         // Check if the user has a request that is pending or declined or approved or modified
         //bde es2al iza n3amal declined aw approved la request la user iza by2dr yrj3 y3mel another request aw laa
    /*const [existingRequest] = await db.query(
-      'SELECT * FROM Request WHERE Sender_ID = ? AND Status IN (?, ?,?,?)',
+      'SELECT * FROM request WHERE Sender_ID = ? AND Status IN (?, ?,?,?)',
       [userId,  'pending', 'modified','approvedByManager','declined']
     );
 
@@ -98,7 +98,7 @@ if (plateTaken.length > 0) {
     // ✅ Check for existing request in "modification_requested" status
     const [modificationRequest] = await db.query(`
       SELECT Req_ID 
-      FROM Request 
+      FROM request 
       WHERE Sender_ID = ? AND Status = 'modification_requested'
       LIMIT 1
     `, [userId]);
@@ -108,7 +108,7 @@ if (plateTaken.length > 0) {
       const requestId = modificationRequest[0].Req_ID;
       
         const [[requestData]] = await db.query(
-    `SELECT ModificationCount FROM Request WHERE Req_ID = ?`,
+    `SELECT ModificationCount FROM request WHERE Req_ID = ?`,
     [requestId]
   );
 
@@ -149,7 +149,7 @@ const checkExistingRequest = async (req, res) => {
     const userId = req.user.id;
 
     const [existingRequest] = await db.query(
-      'SELECT * FROM Request WHERE Sender_ID = ? AND Status IN (?)',
+      'SELECT * FROM request WHERE Sender_ID = ? AND Status IN (?)',
       [userId,  'pending']
     );
 

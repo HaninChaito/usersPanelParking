@@ -22,7 +22,7 @@ const promisePool = pool.promise();
 export default promisePool;
 
 // Hash all existing passwords (only run this once)
-const [users] = await promisePool.query('SELECT UserID, Password FROM User');
+const [users] = await promisePool.query('SELECT UserID, Password FROM user');
 
 for (const user of users) {
   if (!user.Password.startsWith('$2b$')) { // already hashed?

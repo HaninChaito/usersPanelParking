@@ -51,7 +51,7 @@ console.log(`- Uploads folder: ${fs.existsSync('uploads') ? "✅" : "❌"}`);
 
 /*async function getUsers() {
   try {
-    const [rows] = await db.query('SELECT * FROM User');
+    const [rows] = await db.query('SELECT * FROM user');
     console.log(rows);
   } catch (err) {
     console.error('DB Error:', err);
