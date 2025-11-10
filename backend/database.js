@@ -13,7 +13,7 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME,
    ssl: {
       // Aiven requires an SSL connection
-      rejectUnauthorized: true
+      rejectUnauthorized: false,
     }
 });
 
