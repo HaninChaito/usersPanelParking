@@ -9,7 +9,7 @@ export const login = async (req, res) => {
   
 
   try {
-    const [rows] = await pool.query('SELECT * FROM User WHERE Email = ?', [email]);
+    const [rows] = await pool.query('SELECT * FROM user WHERE Email = ?', [email]);
 
     if (rows.length === 0) {
       return res.status(401).json({ message: 'غير موجود' });
@@ -50,7 +50,7 @@ export const CreateAccount = async (req, res) => {
   
 
   try {
-    const [rows] = await pool.query('SELECT * FROM User WHERE Email = ?', [email]);
+    const [rows] = await pool.query('SELECT * FROM user WHERE Email = ?', [email]);
 
     if (rows.length === 0) {
       return res.status(401).json({ message: 'غير موجود' });
@@ -113,7 +113,7 @@ export const setPassword = async (req, res) => {
 
   try {
     // Check if the user exists
-    const [rows] = await pool.query('SELECT * FROM User WHERE Email = ?', [email]);
+    const [rows] = await pool.query('SELECT * FROM user WHERE Email = ?', [email]);
 
     if (rows.length === 0) {
       return res.status(404).json({ message: 'المستخدم غير موجود' });
