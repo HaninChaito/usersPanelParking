@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173", // Frontend URL
+    origin: "https://users-panel-parking-6i36xt0zx-haninchaitos-projects.vercel.app", // Frontend URL
     credentials: true,
   })
 );
