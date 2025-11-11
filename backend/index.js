@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(
   cors({
-    origin: "https://users-panel-parking-9y1s6psl4-haninchaitos-projects.vercel.app", // Frontend URL
+    origin: "https://users-panel-parking.vercel.app", // Frontend URL
     credentials: true,
   })
 );
